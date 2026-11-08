@@ -1,0 +1,11 @@
+{
+ "_provenance": {
+  "source": "SYNTHETIC; shape of the packument https://registry.npmjs.org/@openai/codex (only the keys the check reads), which a BRIDGE_MODELS_NPM_URL override may still point at; the default npm URL is the dist-tags endpoint (npm_dist_tags_endpoint_20260925.json)",
+  "written": "2026-09-25",
+  "fact": "npm dist-tags.latest = 0.156.1 on 2026-09-24 (facts/MODEL_FACTS.md)"
+ },
+ "name": "@openai/codex",
+ "dist-tags": {
+  "latest": "0.156.1"
+ }
+}

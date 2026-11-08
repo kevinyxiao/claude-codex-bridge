@@ -1,0 +1,112 @@
+{
+ "model_lint": "model-lint: allow-file the bridge's declared model table (docs/model-routing.md 10.2, family F3): its heads, retired predecessors and refused names are exact ids by design; the K1 seat equals the registry's legal-opus-5 pin and skills/model-registry/tests/test_bridge_family.py holds every head to the registry",
+ "version": 21,
+ "updated": "2026-11-07",
+ "policy": {"stale_gate": "warn", "recheck_after_hours": 24, "catalog_timeout_s": 20, "fetch_timeout_s": 5, "fallback_attempts": 3,
+            "auto_promote": true},
+ "catalog_config_keys": ["model_provider", "model_providers", "model_catalog_json", "profile", "profiles", "openai_base_url",
+                         "chatgpt_base_url", "oss_provider"],
+ "efforts": {"codex": ["low", "medium", "high", "xhigh", "max", "ultra"], "claude": ["low", "medium", "high", "xhigh", "max"]},
+ "families": {
+  "codex": {
+   "astra": {"id_glob": "gpt-*-astra", "known_good": "gpt-6-astra", "verified": "2026-09-24",
+             "verified_by": "codex app-server model/list, CLI 0.156.1 (facts/codex_model_list_20260924T215427_cli0.156.1.json)"},
+   "sol":   {"id_glob": "gpt-*-sol", "known_good": "gpt-6.1-sol", "verified": "2026-10-01",
+             "verified_by": "Kevin's checkpoint 2026-10-01 (\"Update the bridge table to gpt-6.1-sol\"); codex app-server model/list, CLI 0.159.3, read 2026-10-01T18:13Z (models-evidence.json) and 18:24Z (tests/fixtures/evidence/codex_model_list_cli0.159.3.json)"},
+   "terra": {"id_glob": "gpt-*-terra", "known_good": "gpt-6.1-terra", "verified": "2026-11-07",
+             "verified_by": "Kevin's checkpoint 2026-11-07 (GPT-6.1 Terra); codex app-server model/list, CLI 0.160.0 (models-evidence.json, read 2026-11-08T02:36:57Z) and CLI 0.167.0 (tests/fixtures/evidence/codex_model_list_cli0.167.0.json, read 02:57:36Z)"},
+   "luna":  {"id_glob": "gpt-*-luna", "known_good": "gpt-6-luna", "verified": "2026-09-24", "verified_by": "same"}
+  },
+  "claude": {
+   "fable":  {"id_prefix": "claude-fable-", "known_good": "claude-fable-5-1", "verified": "2026-09-24",
+              "verified_by": "facts/anthropic_models-overview_20260924.md"},
+   "opus":   {"id_prefix": "claude-opus-", "known_good": "claude-opus-5-5", "verified": "2026-09-24", "verified_by": "same"},
+   "sonnet": {"id_prefix": "claude-sonnet-", "known_good": "claude-sonnet-5-5", "verified": "2026-10-01", "verified_by": "Models API listing of 2026-10-01; the model registry's floor of the same date"},
+   "haiku":  {"id_prefix": "claude-haiku-", "known_good": "claude-haiku-5-5", "verified": "2026-10-08",
+              "verified_by": "Kevin's checkpoint 2026-10-08; tests/fixtures/evidence/anthropic_model-deprecations_20261008.md:91 and anthropic_models-overview_20261008.md:34,42; installed Claude Code 2.1.295 baked catalog (skills/model-registry/tests/fixtures/claude_cli)"}
+  }
+ },
+ "models": {
+  "gpt-6-astra":   {"family": "astra", "generation": "6", "efforts": ["low", "medium", "high", "xhigh", "max", "ultra"], "min_cli": "0.153.0",
+                    "aliases": [], "source": "model/list 2026-09-24; floor: bundled minimal_client_version"},
+  "gpt-6.1-sol":   {"family": "sol", "generation": "6.1", "efforts": ["low", "medium", "high", "xhigh", "max", "ultra"], "min_cli": "0.153.0",
+                    "aliases": [], "source": "model/list 2026-10-01 under codex-cli 0.159.3 (Kevin's checkpoint; efforts = its supportedReasoningEfforts; no vendor edge from gpt-6-sol, only gpt-5.5's live pointer names it); floor: bundled minimal_client_version 0.153.0 of the 0.159.3 binary"},
+  "gpt-6.1-terra": {"family": "terra", "generation": "6.1", "efforts": ["low", "medium", "high", "xhigh", "max", "ultra"], "min_cli": "0.153.0",
+                    "aliases": [], "source": "model/list 2026-11-08 under codex-cli 0.160.0 and 0.167.0 (Kevin's checkpoint 2026-11-07; efforts = its supportedReasoningEfforts); floor: bundled minimal_client_version 0.153.0 of the 0.167.0 binary (the same in 0.166.0-alpha.6 and 0.169.0-alpha.3; the 0.160.0 binary bundles no gpt-6.1-terra, its server catalog served it)"},
+  "gpt-6-luna":    {"family": "luna", "generation": "6", "efforts": ["low", "medium", "high", "xhigh", "max"], "min_cli": "0.156.1",
+                    "aliases": [], "source": "model/list; floor: rust-v0.156.1 #47405 put it in the catalog (the 0.154.0 live list lacks it), as the retired gpt-6-sol"},
+  "claude-fable-5-1":          {"family": "fable", "generation": "5.1", "efforts": ["low", "medium", "high", "xhigh", "max"], "min_cli": "2.1.257",
+                                "aliases": [], "source": "code.claude.com model-config effort table; overview"},
+  "claude-opus-5-5":           {"family": "opus", "generation": "5.5", "efforts": ["low", "medium", "high", "xhigh", "max"], "min_cli": "2.1.280",
+                                "aliases": [], "source": "same; default effort medium"},
+  "claude-sonnet-5-5":         {"family": "sonnet", "generation": "5.5", "efforts": ["low", "medium", "high", "xhigh", "max"], "min_cli": "2.1.284",
+                                "aliases": [], "source": "Models API listing 2026-10-01 (created_at 2026-09-28); code.claude.com model-config: the sonnet alias is Sonnet 5.5 from Claude Code 2.1.284"},
+  "claude-haiku-5-5":          {"family": "haiku", "generation": "5.5", "efforts": ["low", "medium", "high", "xhigh", "max"], "min_cli": "2.1.295",
+                                "aliases": [], "source": "tests/fixtures/evidence/anthropic_models-overview_20261008.md:34,36,42: API ID and API alias both claude-haiku-5-5, default effort medium; installed Claude Code 2.1.295 baked catalog (skills/model-registry/tests/fixtures/claude_cli/claude_code_2.1.295_baked_model_catalog_literal.js.txt:2): haiku default and latest_per_family are claude-haiku-5-5, capabilities effort/max_effort/xhigh_effort; min_cli is a conservative verified-compatible floor, earliest compatible build unverified"},
+  "claude-haiku-4-5-20251001": {"family": "haiku", "generation": "4.5", "efforts": [], "min_cli": null,
+                                "aliases": ["claude-haiku-4-5"], "source": "overview: API alias claude-haiku-4-5; model-config: not listed for effort"},
+  "claude-opus-5":             {"family": "opus", "generation": "5", "efforts": ["low", "medium", "high", "xhigh", "max"], "min_cli": null,
+                                "aliases": [], "source": "K1 seat target only; deprecations page 2026-09-24: Active, not sooner than 2027-07-24"}
+ },
+ "fallback": {"codex": {"gpt-6-astra": "gpt-6.1-sol"}, "claude": {}},
+ "effort_fallback": {"codex": {"ultra": "max", "max": "xhigh"}},
+ "k1_seat": {"seat": "opus-5", "id": "claude-opus-5", "enabled": true, "reason": "Kevin K1: legal work stays on Opus 5", "declared": "2026-09-24"},
+ "retired": {
+  "codex": {"sol": ["gpt-6-sol", "gpt-5.6-sol", "gpt-5.5"], "luna": ["gpt-5.6-luna"], "astra": [], "terra": ["gpt-5.6-terra"]},
+  "claude": {
+   "fable": ["claude-fable-5"],
+   "opus": ["claude-opus-5", "claude-opus-4-8", "claude-opus-4-7", "claude-opus-4-6", "claude-opus-4-5-20251101", "claude-opus-4-1-20250805",
+            "claude-opus-4-20250514"],
+   "sonnet": ["claude-sonnet-5", "claude-sonnet-4-6", "claude-sonnet-4-5-20250929", "claude-sonnet-4-20250514", "claude-3-7-sonnet-20250219"],
+   "haiku": ["claude-haiku-4-5-20251001", "claude-3-5-haiku-20241022", "claude-3-haiku-20240307"]
+  }
+ },
+ "refused": {
+  "codex": {
+   "5.5": {"id": "gpt-5.5", "family": "sol", "reason": "retires 2026-10-14; the current Sol replaces it"},
+   "gpt-5.5": {"same_as": "5.5"},
+   "spark": {"id": "gpt-5.3-codex-spark", "family": "luna", "reason": "retired; OpenAI names no replacement; nearest current fast model"},
+   "gpt-5.3-codex-spark": {"same_as": "spark"},
+   "gpt-5.4": {"family": "sol", "reason": "retired 2026-08-31; OpenAI's upgrade pointer names Sol"},
+   "gpt-5.4-mini": {"family": "luna", "reason": "in no catalog; nearest current fast model"},
+   "gpt-5.2": {"family": "sol", "reason": "in no catalog; the current Sol is the workhorse"},
+   "gpt-6": {"family": "astra", "reason": "ambiguous since GPT-6 Sol and Luna shipped; the GPT-6 flagship is Astra (say sol or luna for the others)"},
+   "gpt6": {"same_as": "gpt-6"},
+   "gpt-reserve": {"family": "luna", "reason": "hidden internal model, not selectable; nearest current fast model"},
+   "codex-auto-review": {"family": "sol", "reason": "hidden internal review model, not selectable"},
+   "gpt-daybreak-*": {"family": "astra", "reason": "hidden preview models, not selectable"}
+  },
+  "claude": {
+   "claude-mythos-5-1": {"family": "fable", "reason": "excluded: Project Glasswing only; Fable is the top generally available model"},
+   "claude-mythos-5": {"same_as": "claude-mythos-5-1"},
+   "claude-mythos-preview": {"family": "fable", "reason": "deprecated 2026-06-09"},
+   "opus5": {"family": "opus", "reason": "ambiguous: opus is the newest Opus; the K1 seat is opus-5"},
+   "fable5": {"family": "fable", "reason": "ambiguous: fable is the newest Fable"}
+  }
+ },
+ "history": [
+  {"kind": "bundled_upgrade_pointer", "from": "gpt-5.6-terra", "to": "gpt-6-sol", "retirement_at": null, "observed": "2026-09-24",
+   "source": "facts/models_json_rust-v0.156.1.json (OpenAI's bundled catalog; not runtime evidence)", "decision": "Kevin: terra stays gpt-5.6-terra"},
+  {"kind": "catalog_config_key_removed", "key": "service_tier", "observed": "2026-09-25",
+   "source": "Codex rust-v0.157.0 codex-rs/app-server/src/models.rs (facts/codex_app-server_models.rs_rust-v0.157.0.txt): supported_models() filters only on include_hidden || preset.show_in_picker, and service tiers are per-model metadata; the models endpoint and manager (facts/codex_model-provider_models_endpoint.rs_rust-v0.156.1.txt, facts/codex_models-manager_manager.rs_rust-v0.156.1.txt) take no service tier",
+   "decision": "L2 (review/rulings_final_round.md): service_tier does not affect model/list, so it is not a catalog key. Kevin's Mac sets service_tier = \"priority\" in ~/.codex/config.toml, which had made the local catalog permanently not applicable there (verify/live/doctor_premerge.txt)"},
+  {"kind": "k1_seat_enabled", "seat": "opus-5", "id": "claude-opus-5", "observed": "2026-09-26",
+   "source": "Kevin's answer of 2026-09-26 (\"Yes, to everything\") to: should the Opus 5 seat for legal work be switched on? (review/ruling_k1_on.md)",
+   "decision": "K1-ON: the K1 seat ships on (k1_seat.enabled true): opus-5 runs claude-opus-5 for legal work, per Kevin's K1 rule. opus still means claude-opus-5-5, claude-opus-5 stays a retired predecessor that only the opus-5 seat reaches, and triad still refuses opus-5 for relay workers"},
+  {"kind": "no_silent_descent", "observed": "2026-09-26",
+   "source": "docs/model-routing.md sections 3.3 and 5 (family F3, the bridge); docs/model-routing-review.md, Build notes (F3)",
+   "decision": "F3: the fallback and effort_fallback edges are suggestions the bridge names when it refuses to descend, never applied on their own. A Codex seat moves to another family or effort only through its explicit preference list (astra|sol:ultra, astra:ultra|max), and only once no capable account is left; the descent is recorded and noticed. With the model registry installed, a seat is routed only to the relay accounts whose fresh catalog lists its model at the requested effort (relay's pick confined to that set in protocol 2), a relay that cannot apply the set makes the bridge validate this machine's own login instead of running it unchecked, and every attempt records the requested, expected and observed models (Codex from the attempt's own window of the rollout file, Claude from its own stream); --strict-model fails an attempt that ran another model or whose observation could not be collected"},
+  {"kind": "human_checkpoint", "family": "sol", "from": "gpt-6-sol", "to": "gpt-6.1-sol", "observed": "2026-10-01",
+   "source": "codex app-server model/list under codex-cli 0.159.3 (models-evidence.json read 2026-10-01T18:13Z; tests/fixtures/evidence/codex_model_list_cli0.159.3.json read 18:24Z): gpt-6.1-sol listed, not hidden, isDefault, upgrade null, efforts low..ultra, beside gpt-6-sol (upgrade null); the bundled catalog of the 0.159.3 binary (sha256 719c75b7...) carries no edge gpt-6-sol -> gpt-6.1-sol, only gpt-5.5 -> gpt-6-sol; the live catalog's gpt-5.5 pointer names gpt-6.1-sol (retires 2026-10-14); registry explain: conflict, promoted only by a human checkpoint",
+   "decision": "Kevin 2026-10-01: \"Update the bridge table to gpt-6.1-sol\". Sol's head is gpt-6.1-sol; gpt-6-sol is a retired predecessor (refused, naming gpt-6.1-sol); the astra fallback suggestion now names gpt-6.1-sol (a 6 -> 6.1 edge, not a descent). No vendor edge was invented: the registry's floor moves by the same checkpoint and this Mac's codex/sol head re-bootstraps from it (state.log)"},
+  {"kind": "head_promoted", "family": "sonnet", "from": "claude-sonnet-5", "to": "claude-sonnet-5-5", "observed": "2026-10-01",
+   "source": "the Models API listing of 2026-10-01 (claude-sonnet-5-5 created_at 2026-09-28, after claude-sonnet-5's 2026-06-29), read for the model registry with a subscription setup token; this bridge's own models check had flagged claude-sonnet-5-5 as Active and missing from the table",
+   "decision": "sonnet runs claude-sonnet-5-5, its family's newest model (PR #25), and the head agrees with the model registry's floor (skills/model-registry/tests/test_bridge_family.py); claude-sonnet-5 is a retired predecessor"},
+  {"kind": "human_checkpoint", "family": "haiku", "from": "claude-haiku-4-5-20251001", "to": "claude-haiku-5-5", "observed": "2026-10-08",
+   "source": "models-evidence.json read 2026-10-08T21:15:09Z: Anthropic deprecations lists both Haiku 5.5 and Haiku 4.5 Active (tests/fixtures/evidence/anthropic_model-deprecations_20261008.md:91-92); overview API ID and alias are claude-haiku-5-5 (anthropic_models-overview_20261008.md:34,42); installed Claude Code 2.1.295 baked catalog names claude-haiku-5-5 as haiku default and latest_per_family, with fallback_3p to claude-haiku-4-5 (skills/model-registry/tests/fixtures/claude_cli/claude_code_2.1.295_baked_model_catalog_literal.js.txt:2)",
+   "decision": "Kevin's checkpoint 2026-10-08: \"update the bridge's model table, which is missing claude-haiku-5-5\". Haiku's head is claude-haiku-5-5 and agrees with the model registry's adopted floor. Haiku 4.5 keeps its record and API alias; it is a superseded predecessor for bridge selection while Anthropic still lists it Active. No tier choice or dispatch site changes"},
+  {"kind": "human_checkpoint", "family": "terra", "from": "gpt-5.6-terra", "to": "gpt-6.1-terra", "observed": "2026-11-07",
+   "source": "codex app-server model/list under codex-cli 0.160.0 (models-evidence.json read 2026-11-08T02:36:57Z) and 0.167.0 (tests/fixtures/evidence/codex_model_list_cli0.167.0.json, read 02:57:36Z): gpt-6.1-terra listed, not hidden, upgrade null, efforts low..ultra, beside gpt-5.6-terra (upgrade null; its bundled pointer still names gpt-6-sol, no edge to gpt-6.1-terra); doctor flagged it as a newer model missing from the table, and the model registry has recorded it as a conflict since 2026-10-30 (listed by this Mac's login, no upgrade edge)",
+   "decision": "Kevin 2026-11-07: GPT-6.1 Terra is the current Terra. Terra's head is gpt-6.1-terra (floor 0.153.0, the bundled minimal_client_version); gpt-5.6-terra is a retired predecessor (refused, naming gpt-6.1-terra). The model registry's Terra floor moves by the same checkpoint"}
+ ]
+}

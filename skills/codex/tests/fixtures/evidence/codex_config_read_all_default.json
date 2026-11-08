@@ -1,0 +1,22 @@
+{
+ "_provenance": {
+  "source": "SYNTHETIC; shape of `codex app-server` config/read on CLI 0.156.1 (facts/FIXTURES.md 'Free probes'); values as the real server returns them (codex_config_read_catalog_keys_20260925_cli0.156.1_sanitized.json)",
+  "written": "2026-09-25",
+  "case": "every catalog_config_keys key at its default: no config layer sets any of them (no origins). The server answers RESOLVED defaults, so chatgpt_base_url carries its default value (L1, review/rulings_final_round.md)"
+ },
+ "config": {
+  "model": null,
+  "model_reasoning_effort": null,
+  "model_provider": null,
+  "model_providers": {},
+  "model_catalog_json": null,
+  "profile": null,
+  "profiles": {},
+  "openai_base_url": null,
+  "chatgpt_base_url": "https://chatgpt.com/backend-api/",
+  "oss_provider": null,
+  "service_tier": null,
+  "model_verbosity": null
+ },
+ "origins": {}
+}

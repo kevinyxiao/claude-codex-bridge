@@ -1,0 +1,6 @@
+interface:
+  display_name: "Claude"
+  short_description: "Ask Claude (the newest Fable or Opus) — questions, reviews, delegated tasks"
+  default_prompt: "Use $claude to get Claude's independent take on this: review the current changes, or answer the hard question I am stuck on."
+policy:
+  allow_implicit_invocation: true

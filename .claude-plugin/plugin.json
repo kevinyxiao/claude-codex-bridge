@@ -1,0 +1,8 @@
+{
+  "name": "claude-codex-bridge",
+  "description": "Call OpenAI's GPT models (the Astra, Sol, Terra and Luna families, always the newest in each) from Claude Code with /codex, and Claude (the Fable, Opus, Sonnet and Haiku families) from Codex with $claude — through each machine's own logins. Any number of model:effort seats in parallel, structured multi-model code review, live monitoring; retired model names are refused with the replacement named.",
+  "version": "2.3.0",
+  "author": { "name": "Kevin Xiao" },
+  "license": "MIT",
+  "keywords": ["codex", "openai", "gpt", "claude", "multi-model", "code-review", "council"]
+}

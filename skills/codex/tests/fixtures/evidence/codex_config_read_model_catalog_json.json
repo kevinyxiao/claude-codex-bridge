@@ -1,0 +1,28 @@
+{
+ "_provenance": {
+  "source": "SYNTHETIC; shape of `codex app-server` config/read on CLI 0.156.1 (facts/FIXTURES.md 'Free probes')",
+  "written": "2026-09-25",
+  "case": "model_catalog_json non-default"
+ },
+ "config": {
+  "model": null,
+  "model_reasoning_effort": null,
+  "model_provider": null,
+  "model_providers": {},
+  "model_catalog_json": "/Users/someone/private-catalog-VALUE-MUST-NOT-PRINT.json",
+  "profile": null,
+  "profiles": {},
+  "openai_base_url": null,
+  "chatgpt_base_url": null,
+  "oss_provider": null,
+  "service_tier": null,
+  "model_verbosity": null
+ },
+ "origins": {
+  "model_catalog_json": {
+   "name": {
+    "type": "user"
+   }
+  }
+ }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "claude-codex-bridge",
+  "owner": { "name": "Kevin Xiao" },
+  "metadata": {
+    "description": "Two-way bridge between Claude Code and OpenAI Codex: /codex in Claude Code, $claude in Codex, any model:effort seats in parallel; family names always mean the newest model in the family.",
+    "version": "2.3.0"
+  },
+  "plugins": [
+    {
+      "name": "claude-codex-bridge",
+      "description": "Call the newest GPT Astra, Sol, Terra and Luna from Claude Code (/codex, /gpt) and the newest Claude Fable, Opus, Sonnet and Haiku from Codex ($claude) through each machine's own logins; parallel multi-model reviews and councils with live monitoring.",
+      "version": "2.3.0",
+      "author": { "name": "Kevin Xiao" },
+      "source": "./"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+ "_provenance": {
+  "source": "SYNTHETIC; shape of `codex app-server` config/read on CLI 0.156.1 (facts/FIXTURES.md 'Free probes')",
+  "written": "2026-09-25",
+  "case": "an unused model_providers entry carrying a sentinel bearer token",
+  "sentinel": "the token value appears ONLY in this file; tests assert it is never printed or stored"
+ },
+ "config": {
+  "model": null,
+  "model_reasoning_effort": null,
+  "model_provider": null,
+  "model_providers": {
+   "unused-proxy": {
+    "name": "Unused proxy",
+    "base_url": "https://proxy.invalid/v1",
+    "wire_api": "responses",
+    "experimental_bearer_token": "SENTINEL-7f3a9c2e41d0-DO-NOT-PRINT",
+    "http_headers": {
+     "Authorization": "Bearer SENTINEL-7f3a9c2e41d0-DO-NOT-PRINT"
+    }
+   }
+  },
+  "model_catalog_json": null,
+  "profile": null,
+  "profiles": {},
+  "openai_base_url": null,
+  "chatgpt_base_url": null,
+  "oss_provider": null,
+  "service_tier": null,
+  "model_verbosity": null
+ },
+ "origins": {
+  "model_providers": {
+   "name": {
+    "type": "user"
+   }
+  }
+ }
+}

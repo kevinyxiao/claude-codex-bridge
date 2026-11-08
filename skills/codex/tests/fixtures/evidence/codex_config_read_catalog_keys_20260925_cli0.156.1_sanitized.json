@@ -1,0 +1,35 @@
+{
+  "_provenance": {
+    "source": "codex app-server config/read (cwd = the bridge cache dir), Codex CLI 0.156.1, Kevin's MacBook, ChatGPT login (account f02)",
+    "captured": "2026-09-25T19:23:01Z",
+    "sanitized": "only the table's catalog_config_keys are kept; object and list values are replaced by their shape (keys or length); origins kept for those keys and their sub-keys; the home directory replaced by /Users/USER",
+    "why": "real servers return RESOLVED defaults (e.g. chatgpt_base_url has a value and no origin); only an origin means a config layer set the key"
+  },
+  "config": {
+    "model_provider": null,
+    "model_providers": {
+      "__redacted__": "object",
+      "keys": []
+    },
+    "model_catalog_json": null,
+    "profile": null,
+    "profiles": {
+      "__redacted__": "object",
+      "keys": []
+    },
+    "openai_base_url": null,
+    "chatgpt_base_url": "https://chatgpt.com/backend-api/",
+    "oss_provider": null,
+    "service_tier": "priority"
+  },
+  "origins": {
+    "service_tier": {
+      "name": {
+        "type": "user",
+        "file": "/Users/USER/.codex/config.toml",
+        "profile": null
+      },
+      "version": "sha256:b999efde173cfa78babd2a964d440879317bb134254ee4a0d3a220558163bedc"
+    }
+  }
+}
